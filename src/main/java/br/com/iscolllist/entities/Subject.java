@@ -13,4 +13,9 @@ public class Subject extends TaskType{
     public Subject() {
         super();
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

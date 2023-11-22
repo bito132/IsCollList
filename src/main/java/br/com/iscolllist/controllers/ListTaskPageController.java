@@ -17,11 +17,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import org.hibernate.Transaction;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.ResourceBundle;
 
 public class ListTaskPageController implements Initializable {
@@ -93,7 +96,10 @@ public class ListTaskPageController implements Initializable {
         tasksTable.setEditable(true);
 
         startDateTask.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        startDateTask.setCellFactory(getDateCell(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+
         deadLineTask.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
+        deadLineTask.setCellFactory(getDateCell(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
 
         tasksTable.setItems(listTasks());
 
@@ -112,6 +118,23 @@ public class ListTaskPageController implements Initializable {
 
             return row;
         });
+    }
+
+    public static <ROW,T extends Temporal> Callback<TableColumn<ROW, T>, TableCell<ROW, T>> getDateCell (DateTimeFormatter format) {
+        return column -> {
+            return new TableCell<ROW, T> () {
+                @Override
+                protected void updateItem (T item, boolean empty) {
+                    super.updateItem (item, empty);
+                    if (item == null || empty) {
+                        setText (null);
+                    }
+                    else {
+                        setText (format.format (item));
+                    }
+                }
+            };
+        };
     }
 
     private ObservableList<Task> listTasks() {

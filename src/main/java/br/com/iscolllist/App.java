@@ -52,15 +52,25 @@ public class App extends Application {
 
     @Override
     public void init() throws Exception{
-        Task tarefakkj = new Task(
-                "mateticakkj",
-                "é pra fazer",
-                LocalDateTime.of(2023, 8, 7, 12, 0),
-                LocalDateTime.of(2023, 10, 7, 12, 0),
-                new Subject("mat a tica")
-        );
+        if (!session.createQuery("from Subject", Subject.class).list().isEmpty()) return;
 
-       // session.get(tarefakkj);
+        Subject subject1 = new Subject("Matemática");
+        Subject subject2 = new Subject("Português");
+        Subject subject3 = new Subject("Química");
+        Subject subject4 = new Subject("Física");
+        Subject subject5 = new Subject("Geografia");
+        Subject subject6 = new Subject("História");
+
+        Transaction transaction = session.beginTransaction();
+
+        session.persist(subject1);
+        session.persist(subject2);
+        session.persist(subject3);
+        session.persist(subject4);
+        session.persist(subject5);
+        session.persist(subject6);
+
+        transaction.commit();
     }
 
     public static void main(String[] args) {

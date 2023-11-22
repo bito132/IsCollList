@@ -1,10 +1,13 @@
 package br.com.iscolllist.controllers;
 
 import br.com.iscolllist.App;
+import br.com.iscolllist.entities.Subject;
 import br.com.iscolllist.entities.Task;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
@@ -53,6 +56,9 @@ public class EditTaskPageController implements Initializable {
     private TextField endDatetimeYear;
 
     @FXML
+    private ComboBox<Subject> subjectsTask;
+
+    @FXML
     void backHomePage(ActionEvent event) {
         App.changeScene("listTaskPage.fxml");
     }
@@ -95,6 +101,7 @@ public class EditTaskPageController implements Initializable {
         task.setDescription(descriptionTask.getText());
         task.setStartDate(startDateTime);
         task.setDeadLine(endDateTime);
+        task.setSubject(subjectsTask.getValue());
 
         Transaction transaction = App.session.beginTransaction();
         App.session.persist(task);
@@ -121,6 +128,16 @@ public class EditTaskPageController implements Initializable {
         endDatetimeDay.setText(String.valueOf(task.getDeadLine().getDayOfMonth()));
         endDatetimeHour.setText(String.valueOf(task.getDeadLine().getHour()));
         endDatetimeMinute.setText(String.valueOf(task.getDeadLine().getMinute()));
+
+        subjectsTask.setValue(App.session.createQuery(
+                        "from Subject where id = :id", Subject.class)
+                .setParameter("id", task.getSubject().getId()).list().get(0)
+        );
+        subjectsTask.setItems(
+                FXCollections.observableArrayList(
+                        App.session.createQuery("from Subject", Subject.class).list()
+                )
+        );
     }
 
     private boolean isFieldEmpty(TextInputControl textField) {

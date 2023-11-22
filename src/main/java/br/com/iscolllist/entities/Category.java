@@ -13,4 +13,9 @@ public class Category extends TaskType{
     public Category() {
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

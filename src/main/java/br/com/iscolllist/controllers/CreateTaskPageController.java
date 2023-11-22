@@ -3,17 +3,18 @@ package br.com.iscolllist.controllers;
 import br.com.iscolllist.App;
 import br.com.iscolllist.entities.Subject;
 import br.com.iscolllist.entities.Task;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import org.hibernate.Transaction;
 
+import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
-public class CreateTaskPageController {
+public class CreateTaskPageController implements Initializable {
     @FXML
     private TextField nameTask;
 
@@ -51,7 +52,7 @@ public class CreateTaskPageController {
     private TextField endDatetimeYear;
 
     @FXML
-    private Button createTaskBtn;
+    private ComboBox<Subject> subjectsTask;
 
     @FXML
     void backHomePage(ActionEvent event) {
@@ -71,7 +72,8 @@ public class CreateTaskPageController {
             !isValidDateTime(endDatetimeHour) ||
             !isValidDateTime(endDatetimeMinute) || 
             !isValidDateTime(endDatetimeMonth) ||
-            !isValidDateTime(endDatetimeYear)
+            !isValidDateTime(endDatetimeYear) ||
+            subjectsTask.getValue() == null
         ) return;
 
         LocalDateTime startDateTime = null;
@@ -97,7 +99,7 @@ public class CreateTaskPageController {
             descriptionTask.getText(),
             startDateTime,
             endDateTime,
-            new Subject("mat a tica")
+            subjectsTask.getValue()
         );
 
         App.session.persist(task);
@@ -139,6 +141,15 @@ public class CreateTaskPageController {
             Integer.parseInt(endDatetimeDay.getText()),
             Integer.parseInt(endDatetimeHour.getText()),
             Integer.parseInt(endDatetimeMinute.getText())
+        );
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        subjectsTask.setItems(
+                FXCollections.observableArrayList(
+                        App.session.createQuery("from Subject", Subject.class).list()
+                )
         );
     }
 }
