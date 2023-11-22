@@ -10,4 +10,7 @@ public class Category extends TaskType{
         super(name);
     }
 
+    public Category() {
+
+    }
 }

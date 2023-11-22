@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class TaskType implements Serializable {
+public abstract class TaskType {
     //Uma classe generalizada em relação as classes Category e Subject(disciplinas e categorias).
 
     @Id
@@ -17,6 +17,10 @@ public abstract class TaskType implements Serializable {
 
     public TaskType(String name) {
         setName(name);
+    }
+
+    public TaskType() {
+
     }
 
     public String getName() {

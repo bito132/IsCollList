@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <Label prefHeight="85.0" prefWidth="96.0" text="teste2kkj" BorderPane.alignment="CENTER" />
-   </center>
-</BorderPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.iscolllist.controllers.EditTaskPageController">
+   <children>
+      <ScrollPane prefHeight="400.0" prefWidth="600.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="581.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="207.0" layoutY="14.0" prefHeight="74.0" prefWidth="168.0" text="Editar Tarefa">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="TOP_CENTER" layoutX="181.0" layoutY="96.0" prefHeight="50.0" prefWidth="243.0">
+                     <children>
+                        <Label text="Nome" />
+                        <TextField fx:id="nameTask" prefHeight="26.0" prefWidth="276.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="137.0" layoutY="164.0" prefHeight="119.0" prefWidth="331.0">
+                     <children>
+                        <Label alignment="CENTER" text="Descrição" />
+                        <TextArea fx:id="descriptionTask" prefHeight="101.0" prefWidth="324.0" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="263.0" layoutY="479.0" mnemonicParsing="false" onAction="#editTask" prefHeight="26.0" prefWidth="80.0" text="Editar" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Button layoutX="36.0" layoutY="35.0" mnemonicParsing="false" onAction="#backHomePage" prefHeight="26.0" prefWidth="68.0" text="Voltar" />
+   </children>
+</AnchorPane>

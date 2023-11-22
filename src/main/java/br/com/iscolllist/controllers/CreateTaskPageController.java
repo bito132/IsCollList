@@ -25,7 +25,7 @@ public class CreateTaskPageController {
     private Button createTaskBtn;
 
     @FXML
-    void backHomePage(ActionEvent event) throws IOException {
+    void backHomePage(ActionEvent event) {
         App.changeScene("homePage.fxml");
     }
 
@@ -34,11 +34,17 @@ public class CreateTaskPageController {
 
         Transaction transaction = App.session.beginTransaction();
 
-        Task task = new Task(nameTask.getText(), descriptionTask.getText(), LocalDateTime.of(2023, 8, 7, 12, 0),
-                LocalDateTime.of(2023, 10, 7, 12, 0), new Subject("mat a tica"));
+        Task task = new Task(
+                nameTask.getText(),
+                descriptionTask.getText(),
+                LocalDateTime.of(2023, 8, 7, 12, 0),
+                LocalDateTime.of(2023, 10, 7, 12, 0),
+                new Subject("mat a tica")
+        );
 
         App.session.persist(task);
 
         transaction.commit();
+        App.changeScene("homePage.fxml");
     }
 }

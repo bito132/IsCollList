@@ -13,7 +13,6 @@
          </font>
       </Label>
       <Button id="AddTaskBottom" fx:id="AddTaskBottom" layoutX="234.0" layoutY="187.0" mnemonicParsing="false" onAction="#clickAddTask" prefHeight="26.0" prefWidth="132.0" text="Adicionar Tarefa" />
-      <Button id="EditTaskBottom" fx:id="EditTaskBottom" layoutX="234.0" layoutY="238.0" mnemonicParsing="false" onAction="#clickEditTask" prefHeight="26.0" prefWidth="132.0" text="Editar Tarefa" />
-      <Button id="ShowTaskBottom" fx:id="ShowTaskBottom" layoutX="234.0" layoutY="287.0" mnemonicParsing="false" onAction="#clickShowTask" prefHeight="26.0" prefWidth="132.0" text="Visualizar Tarefas" />
+      <Button id="ShowTaskBottom" fx:id="ShowTaskBottom" layoutX="234.0" layoutY="237.0" mnemonicParsing="false" onAction="#clickShowTask" prefHeight="26.0" prefWidth="132.0" text="Visualizar Tarefas" />
    </children>
 </AnchorPane>

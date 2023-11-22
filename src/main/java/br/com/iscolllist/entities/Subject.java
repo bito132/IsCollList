@@ -9,4 +9,8 @@ public class Subject extends TaskType{
     public Subject(String name) {
         super(name);
     }
+
+    public Subject() {
+        super();
+    }
 }

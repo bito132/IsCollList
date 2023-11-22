@@ -10,27 +10,12 @@ import java.io.IOException;
 public class HomePageController {
 
     @FXML
-    private Button AddTaskBottom;
-
-    @FXML
-    void clickAddTask(ActionEvent event) throws IOException {
+    void clickAddTask(ActionEvent event) {
         App.changeScene("createTaskPage.fxml");
-        System.out.println("kkj deu certokkj1");
-
     }
 
     @FXML
-    void clickEditTask(ActionEvent event) throws IOException {
-        App.changeScene("editTaskPage.fxml");
-        System.out.println("kkj deu certokkj2");
-
-    }
-
-    @FXML
-    void clickShowTask(ActionEvent event) throws IOException {
+    void clickShowTask(ActionEvent event)  {
         App.changeScene("listTaskPage.fxml");
-        System.out.println("kkj deu certokkj3");
-
     }
-
 }

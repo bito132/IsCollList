@@ -35,6 +35,10 @@ public class Task {
     )
     private List<Category> categories;
 
+    public Task() {
+        this.categories = new ArrayList<>();
+    }
+
     public Task(String name, String description, LocalDateTime startDate, LocalDateTime deadLine, Subject subject) {
         setName(name);
         setDescription(description);

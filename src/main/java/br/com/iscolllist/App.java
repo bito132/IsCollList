@@ -19,11 +19,22 @@ public class App extends Application {
 
     public static Session session = HibernateUtil.getSessionFactory().openSession();
     public static Transaction transaction; //= session.beginTransaction();
-    public static void changeScene(String sceneName) throws IOException {
-        FXMLLoader fXMLLoader;
-        fXMLLoader = new FXMLLoader(App.class.getResource(sceneName));
-        Scene scene = new Scene(fXMLLoader.load(), 600, 420);
-        stage.setScene(scene);
+    public static void changeScene(String sceneName) {
+        try {
+            FXMLLoader fXMLLoader = new FXMLLoader(App.class.getResource(sceneName));
+            Scene scene = new Scene(fXMLLoader.load(), 600, 420);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            System.out.println("Arquivo não existe");
+        }
+    }
+
+    public static void sendTask(Task task) {
+        stage.setUserData(task);
+    }
+
+    public static Task getTask() {
+        return (Task) stage.getUserData();
     }
 
     @Override
