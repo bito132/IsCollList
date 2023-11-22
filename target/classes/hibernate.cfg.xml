@@ -3,7 +3,7 @@
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/IsCollListDataBase</property>
-        <property name="connection.username">estudante1</property>
+        <property name="connection.username">root</property>
         <property name="connection.password">bito132</property>
         <!--
          JDBC connection pool settings ... using built-in test pool
@@ -29,5 +29,6 @@
         <mapping class="br.com.iscolllist.entities.Category"/>
         <mapping class="br.com.iscolllist.entities.Subject"/>
         <mapping class="br.com.iscolllist.entities.TaskType"/>
+        <mapping class="br.com.iscolllist.entities.User"/>
     </session-factory>
 </hibernate-configuration>

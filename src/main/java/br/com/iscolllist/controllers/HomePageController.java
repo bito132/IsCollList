@@ -10,6 +10,11 @@ import java.io.IOException;
 public class HomePageController {
 
     @FXML
+    public void backLoginPage(ActionEvent event){
+        App.changeScene("login.fxml");
+    }
+
+    @FXML
     void clickAddTask(ActionEvent event) {
         App.changeScene("createTaskPage.fxml");
     }

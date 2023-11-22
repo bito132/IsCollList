@@ -46,7 +46,7 @@ public class App extends Application {
       //  Scene sceneEditTaskPage = new Scene(fxmlLoader.load(), 600, 420);
       //  Scene sceneListtaskPage = new Scene(fxmlLoader.load(), 600, 420);
         stage.setTitle("testekkj");
-        changeScene("homePage.fxml");
+        changeScene("login.fxml");
         stage.show();
     }
 

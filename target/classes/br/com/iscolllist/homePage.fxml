@@ -14,5 +14,6 @@
       </Label>
       <Button id="AddTaskBottom" fx:id="AddTaskBottom" layoutX="234.0" layoutY="187.0" mnemonicParsing="false" onAction="#clickAddTask" prefHeight="26.0" prefWidth="132.0" text="Adicionar Tarefa" />
       <Button id="ShowTaskBottom" fx:id="ShowTaskBottom" layoutX="234.0" layoutY="237.0" mnemonicParsing="false" onAction="#clickShowTask" prefHeight="26.0" prefWidth="132.0" text="Visualizar Tarefas" />
+      <Button layoutX="46.0" layoutY="45.0" mnemonicParsing="false" onAction="#backLoginPage" prefHeight="26.0" prefWidth="68.0" text="Voltar" />
    </children>
 </AnchorPane>

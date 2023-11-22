@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.iscolllist.controllers.SignUpPageController">
+   <children>
+      <Label alignment="CENTER" layoutX="221.0" layoutY="7.0" prefHeight="70.0" prefWidth="158.0" text="IsCollList">
+         <font>
+            <Font name="Comic Sans MS" size="35.0" />
+         </font>
+      </Label>
+      <VBox alignment="TOP_CENTER" layoutX="199.0" layoutY="93.0" prefHeight="251.0" prefWidth="202.0" style="-fx-background-color: #5cc98c;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="238.0" style="-fx-background-color: #5c91d8;" text="Cadastro">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <VBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="85.0">
+               <children>
+                  <Label alignment="CENTER" text="Usuário" />
+                  <TextField fx:id="userNameSignUp" maxHeight="1080.0" maxWidth="132.0" minHeight="10.0" minWidth="25.0" prefHeight="26.0" prefWidth="195.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="202.0">
+               <children>
+                  <Label alignment="CENTER" text="Senha" />
+                  <PasswordField fx:id="userPasswordSignUp" maxHeight="1080.0" maxWidth="132.0" minHeight="10.0" minWidth="25.0" prefHeight="26.0" prefWidth="195.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="202.0">
+               <children>
+                  <Label alignment="CENTER" text="Confirmar senha" />
+                  <PasswordField fx:id="userConfirmPasswordSignUp" maxHeight="1080.0" maxWidth="132.0" minHeight="10.0" minWidth="25.0" prefHeight="26.0" prefWidth="195.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="71.0" prefWidth="202.0">
+               <children>
+                  <Label fx:id="warningTextSignUp" alignment="CENTER" prefHeight="17.0" prefWidth="184.0" textFill="#e10606">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#signUpUser" prefHeight="28.0" prefWidth="85.0" snapToPixel="false" text="Cadastrar">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Button layoutX="36.0" layoutY="35.0" mnemonicParsing="false" onAction="#backLoginPage" prefHeight="26.0" prefWidth="68.0" text="Voltar" />
+   </children>
+</AnchorPane>
