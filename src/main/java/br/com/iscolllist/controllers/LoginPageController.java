@@ -38,18 +38,22 @@ public class LoginPageController {
     }
 
 
-    public boolean validLogin(){
-        return App.session.createQuery("from User where name = :name and password = :password", User.class)
+    public User validLogin(){
+        User user = App.session.createQuery("from User where name = :name and password = :password", User.class)
                 .setParameter("name", userNameLogin.getText())
                 .setParameter("password", userPasswordLogin.getText())
-                .uniqueResult() != null;
+                .uniqueResult();
+
+        return user;
     }
     @FXML
     public void loginUser(ActionEvent event){
 
 
-        if(validLogin())
+        if(validLogin() != null) {
+            App.userLogade = validLogin();
             App.changeScene("homePage.fxml");
+        }
         else{
             warningTextLogin.setText("usuário ou senha inválidos");
         }

@@ -2,6 +2,7 @@ package br.com.iscolllist;
 
 import br.com.iscolllist.entities.Subject;
 import br.com.iscolllist.entities.Task;
+import br.com.iscolllist.entities.User;
 import br.com.iscolllist.util.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,8 @@ import java.time.LocalDateTime;
 public class App extends Application {
 
     private static Stage stage;
+
+    public static User userLogade;
 
     public static Session session = HibernateUtil.getSessionFactory().openSession();
     public static Transaction transaction; //= session.beginTransaction();

@@ -143,6 +143,8 @@ public class ListTaskPageController implements Initializable {
     }
 
     private ObservableList<Task> listTasks() {
-        return FXCollections.observableArrayList(App.session.createQuery("from Task", Task.class).list());
+        return FXCollections.observableArrayList(App.session.createQuery("from Task where IdUser = :IdUser", Task.class)
+                        .setParameter("IdUser", App.userLogade)
+                        .list());
     }
 }

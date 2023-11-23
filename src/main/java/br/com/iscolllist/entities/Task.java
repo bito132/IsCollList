@@ -20,6 +20,10 @@ public class Task {
     private String description;
     @Column
     private boolean concluded;
+
+    @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "IdUser")
+    private User IdUser;
     @Column
     private LocalDateTime startDate;
     @Column
@@ -39,10 +43,11 @@ public class Task {
         this.categories = new ArrayList<>();
     }
 
-    public Task(String name, String description, LocalDateTime startDate, LocalDateTime deadLine, Subject subject) {
+    public Task(String name, String description, User idUser, LocalDateTime startDate, LocalDateTime deadLine, Subject subject) {
         setName(name);
         setDescription(description);
         setConcluded(false);
+        setIdUser(idUser);
         setStartDate(startDate);
         setDeadLine(deadLine);
         setSubject(subject);
@@ -95,5 +100,13 @@ public class Task {
 
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+
+    public User getIdUser() {
+        return IdUser;
+    }
+
+    public void setIdUser(User idUser) {
+        IdUser = idUser;
     }
 }

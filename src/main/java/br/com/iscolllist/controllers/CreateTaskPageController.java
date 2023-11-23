@@ -97,6 +97,7 @@ public class CreateTaskPageController implements Initializable {
         Task task = new Task(
             nameTask.getText(),
             descriptionTask.getText(),
+            App.userLogade,
             startDateTime,
             endDateTime,
             subjectsTask.getValue()
