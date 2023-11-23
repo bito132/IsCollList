@@ -46,6 +46,8 @@ public class ListTaskPageController implements Initializable {
     @FXML
     private TableView<Task> tasksTable;
 
+    public static Task viewTask;
+
     @FXML
     void backHomePage(ActionEvent event) {
         App.changeScene("homePage.fxml");
@@ -113,6 +115,9 @@ public class ListTaskPageController implements Initializable {
 
                     App.sendTask(clickedTask);
                     App.changeScene("editTaskPage.fxml");
+                } else if (!row.isEmpty() && event.getButton() == MouseButton.SECONDARY) {
+                    viewTask = row.getItem();
+                    App.changeScene("detailedViewTaks.fxml");
                 }
             });
 

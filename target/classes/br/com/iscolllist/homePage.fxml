@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.iscolllist.controllers.HomePageController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="199.0" layoutY="87.0" prefHeight="86.0" prefWidth="203.0" text="IsCollList">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <Button id="AddTaskBottom" fx:id="AddTaskBottom" layoutX="234.0" layoutY="187.0" mnemonicParsing="false" onAction="#clickAddTask" prefHeight="26.0" prefWidth="132.0" text="Adicionar Tarefa" />
+      <Button id="ShowTaskBottom" fx:id="ShowTaskBottom" layoutX="234.0" layoutY="237.0" mnemonicParsing="false" onAction="#clickShowTask" prefHeight="26.0" prefWidth="132.0" text="Visualizar Tarefas" />
+      <Button layoutX="46.0" layoutY="45.0" mnemonicParsing="false" onAction="#backLoginPage" prefHeight="26.0" prefWidth="68.0" text="Voltar" />
+   </children>
+</AnchorPane>
